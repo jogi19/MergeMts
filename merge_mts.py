@@ -1,3 +1,11 @@
+'''
+This script is my poc how to merge MTS files
+from my video camera to one large video
+and convert to mkv
+'''
+
+from __future__ import print_function
+
 import os
 import fnmatch
 
@@ -7,7 +15,7 @@ MTS.sort()
 for i in MTS:
     print("ffmpeg -i "+i+" -vcodec copy -acodec copy "+i[:-4]+".mp4")
     os.system("ffmpeg -i "+i+" -vcodec copy -acodec copy "+i[:-4]+".mp4")
-    
+
 
 #MP4 = []
 #MP4 = fnmatch.filter(os.listdir('.'), '*.mp4')
@@ -15,7 +23,7 @@ for i in MTS:
 #for i in MP4:
 #    print("ffmpeg -i "+i+" -vcodec copy -acodec copy "+i[:-4]+".mkv")
 #    os.system("ffmpeg -i "+i+" -vcodec copy -acodec copy "+i[:-4]+".mkv")
-os.system("mencoder -oac pcm -ovc copy -o merged_file.mp4 `ls *.mp4`")    
+os.system("mencoder -oac pcm -ovc copy -o merged_file.mp4 `ls *.mp4`")
 os.system("avconv -i merged_file.mp4 -c copy film.mkv")
 #kvmerge -o full.mkv file1.mkv + file2.mkv
 #$ mkvmerge -o full.mkv '[' file1.mkv file2.mkv ']'
@@ -30,14 +38,14 @@ os.system("avconv -i merged_file.mp4 -c copy film.mkv")
 #    if count==1:
 #        os.system("mkvmerge -o ../full.mkv "+j)
 #        os.system("mv ../full.mkv ../last.mkv")
-#        
+#
 #    else:
 #        os.system("mkvmerge -o ../full.mkv ../last.mkv "+j)
 #        os.system("rm ../last.mkv")
 #        os.system("mv ../full.mkv ../last.mkv")
 #    count=count+1
-#    print(count)        
-    
+#    print(count)
+
     #s_mkv = s_mkv+" "+j
 print('###############################################')
 os.system('rm *mp4')
