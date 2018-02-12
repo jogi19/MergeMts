@@ -37,5 +37,11 @@ for i in MKV:
         print("#################################################################")
         print("mkvmerge -o full"+str(count)+".mkv full" +str(count-1)+".mkv + "+i)
         os.system("mkvmerge -o full"+str(count)+".mkv full" +str(count-1)+".mkv + "+i)
+        if os.path.exists("full" +str(count-1)+".mkv"):
+            os.remove("full" +str(count-1)+".mkv")
+        if os.path.exists(i):
+            os.remove(i)
+            
     count = count+ 1
     print('count: '+str(count))
+os.rename("full" +str(count-1)+".mkv", "complete.mkv")
