@@ -2,13 +2,21 @@
 This script is my poc how to merge MTS files
 from my video camera to one large video
 and convert to mkv
+you can start it with the path where your 
+files are located
 '''
 
 from __future__ import print_function
 
 import os
+import sys
 import fnmatch
 
+WORK_PATH = os.path.abspath(".")
+if(len(sys.argv)>1):
+    WORK_PATH = sys.argv[1]
+
+os.chdir(WORK_PATH)
 MTS = []
 MTS = fnmatch.filter(os.listdir('.'), '*.MTS')
 MTS.sort()
@@ -33,6 +41,7 @@ count = 0
 for i in MKV:
     if (count == 0):
         os.system("mkvmerge -o full0.mkv "+ i)
+        os.remove(i)
     if (count > 0):
         print("#################################################################")
         print("mkvmerge -o full"+str(count)+".mkv full" +str(count-1)+".mkv + "+i)
