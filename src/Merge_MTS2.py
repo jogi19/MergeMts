@@ -20,4 +20,7 @@ text_file.close
 bashCommand = "ffmpeg -f concat -i file_list.txt -c copy "+sdcard+".mkv"
 print("run from command line:")
 print(bashCommand)
-#os.system(bashCommand)
+#os.system(bashCommand) // this does not work
+print("\nYou can also convert this file to no interlaced:")
+no_interlaced_bashCommand = "ffmpeg -i "+sdcard+".mkv -vf yadif=1 "+sdcard+"p"
+print(no_interlaced_bashCommand)
