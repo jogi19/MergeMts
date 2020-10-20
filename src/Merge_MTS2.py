@@ -1,6 +1,10 @@
+# Copyright by Zwerg Aldi und Wichtel Edeka
+# This is the refered variant which seems to work
+
 import os
 import subprocess
 
+# adapt these zwo lines to your need
 sdcard = "sdcard27"
 directory = "Videos/"+sdcard+"/PRIVATE/AVCHD/BDMV/STREAM/"
 file_names =[]
