@@ -1,5 +1,5 @@
 # Copyright by Zwerg Aldi und Wichtel Edeka
-# This is the refered variant which seems to work
+# This is the prefered variant which seems to work
 
 import os
 import subprocess
